@@ -1,6 +1,9 @@
 json.id student.id
-json.first_name student.first_name
-json.last_name student.last_name
+if student.full_name.starts_with?("M")
+  json.full_name student.full_name + " is a Jack Spy."
+else
+  json.full_name student.full_name
+end
 json.email student.email
 json.birthdate student.birthdate
 json.university student.university

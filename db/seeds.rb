@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+Student.destroy_all
 100.times do 
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
@@ -17,3 +17,14 @@
                 pokemon: Faker::Pokemon.name
     )
 end
+
+100.times do
+  Address.create(street_address: Faker::Address.street_address,
+                city: Faker::Address.city,
+                state: Faker::Address.state,
+                zip: Faker::Address.zip,
+                country: Faker::Address.country,
+                student_id: Student.all.sample.id
+    )
+end
+puts "Database successfully purged and seeded!"

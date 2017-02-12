@@ -30,7 +30,7 @@ class StudentsController < ApplicationController
   def destroy
     @student = Student.find_by(id: params[:id])
     @student.destroy
-    redirect_to "/students.json"
+    redirect_to "/students.json", status: 303
   end
 
 end
